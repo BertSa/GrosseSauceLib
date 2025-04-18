@@ -7,7 +7,7 @@
   "authors": [],
   "contact": {},
   "license": "MIT",
-  "icon": "assets/libkey/icon.png",
+  "icon": "assets/grossesaucelib/icon.png",
   "environment": "*",
   "entrypoints": {
     "main": [

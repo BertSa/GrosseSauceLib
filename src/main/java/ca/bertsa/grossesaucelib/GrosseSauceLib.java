@@ -6,10 +6,10 @@ import org.slf4j.LoggerFactory;
 
 public class GrosseSauceLib implements ModInitializer {
 
-    public static final Logger LOGGER = LoggerFactory.getLogger(LibConstants.MOD_ID);
+    public static final Logger LOGGER = LoggerFactory.getLogger(GrosseSauceLibConst.MOD_ID);
 
     @Override
     public void onInitialize() {
-        LOGGER.info("{} is initializing!", LibConstants.MOD_NAME);
+        LOGGER.info("{} is initializing!", GrosseSauceLibConst.MOD_NAME);
     }
 }
