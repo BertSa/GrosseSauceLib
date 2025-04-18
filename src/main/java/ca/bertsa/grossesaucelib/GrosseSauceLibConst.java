@@ -7,7 +7,6 @@ import java.nio.file.Path;
 public class GrosseSauceLibConst {
     public static final String MOD_ID = "grossesaucelib";
     public static final String MOD_NAME = "SBLib";
-    public static final String VERSION = "1.0.0";
 
     public static final Path CONFIG_DIR = FabricLoader.getInstance().getConfigDir();
 
