@@ -46,6 +46,7 @@ public class InventoryUtils {
         }
         if (Objects.isNull(lastItemSwappedSlot2)) {
             swapStacksWithHand(Hand.OFF_HAND, lastItemSwappedSlot1);
+            return;
         }
 
         swapStacks(lastItemSwappedSlot1, lastItemSwappedSlot2);
@@ -63,6 +64,7 @@ public class InventoryUtils {
         if (Hand.OFF_HAND == hand) {
             interactionManager.clickSlot(0, itemSwappedSlot, 40, SlotActionType.SWAP, player);
             lastItemSwappedSlot1 = itemSwappedSlot;
+            lastItemSwappedSlot2 = null;
             return;
         }
         int selectedSlot = getSlotIndex(player.getInventory().selectedSlot);
