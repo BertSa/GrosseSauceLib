@@ -4,7 +4,7 @@
   "version": "${version}",
   "name": "GrosseSauceLib",
   "description": "",
-  "authors": [],
+  "authors": ["GrosseSauce"],
   "contact": {},
   "license": "MIT",
   "icon": "assets/grossesaucelib/icon.png",

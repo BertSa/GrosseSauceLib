@@ -41,23 +41,26 @@ public class InventoryUtils {
     }
 
     public static void swapStacksBack() {
-        if (lastItemSwappedSlot1 == null || lastItemSwappedSlot2 == null) {
+        if (Objects.isNull(lastItemSwappedSlot1)) {
             return;
+        }
+        if (Objects.isNull(lastItemSwappedSlot2)) {
+            swapStacksWithHand(Hand.OFF_HAND, lastItemSwappedSlot1);
         }
 
         swapStacks(lastItemSwappedSlot1, lastItemSwappedSlot2);
     }
 
-    public static void swapStacksToPreferredHand(Hand preferredHand, int itemSwappedSlot) {
+    public static void swapStacksWithHand(Hand hand, int itemSwappedSlot) {
         MinecraftClient client = MinecraftClient.getInstance();
         ClientPlayerEntity player = client.player;
         ClientPlayerInteractionManager interactionManager = client.interactionManager;
 
-        if (player == null || interactionManager == null) {
+        if (Objects.isNull(player) || Objects.isNull(interactionManager)) {
             return;
         }
 
-        if (preferredHand == Hand.OFF_HAND) {
+        if (Hand.OFF_HAND == hand) {
             interactionManager.clickSlot(0, itemSwappedSlot, 40, SlotActionType.SWAP, player);
             lastItemSwappedSlot1 = itemSwappedSlot;
             return;
@@ -67,7 +70,7 @@ public class InventoryUtils {
         swapStacks(selectedSlot, itemSwappedSlot);
     }
 
-    public static void forgetLastSwappedSlots(){
+    public static void forgetLastSwappedSlots() {
         lastItemSwappedSlot1 = null;
         lastItemSwappedSlot2 = null;
     }
@@ -75,16 +78,18 @@ public class InventoryUtils {
     public static Integer getSlotIndexOfFirstMatchingItem(Function<ItemStack, Boolean> filter) {
         ClientPlayerEntity player = MinecraftClient.getInstance().player;
 
-        if (player == null) {
+        if (Objects.isNull(player)) {
             return null;
         }
-        Inventory inventory = Objects.requireNonNull(player).getInventory();
+
+        Inventory inventory = player.getInventory();
         for (int slot = 0; slot < inventory.size(); slot++) {
             final ItemStack itemStack = inventory.getStack(slot);
             if (filter.apply(itemStack)) {
                 return getSlotIndex(slot);
             }
         }
+
         return null;
     }
 
