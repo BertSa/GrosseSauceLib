@@ -60,7 +60,6 @@ public class InventoryUtils {
         if (Objects.isNull(player) || Objects.isNull(interactionManager)) {
             return;
         }
-
         if (Hand.OFF_HAND == hand) {
             interactionManager.clickSlot(0, itemSwappedSlot, 40, SlotActionType.SWAP, player);
             lastItemSwappedSlot1 = itemSwappedSlot;
