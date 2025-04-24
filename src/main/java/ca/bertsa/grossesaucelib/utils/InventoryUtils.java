@@ -67,7 +67,7 @@ public class InventoryUtils {
             lastItemSwappedSlot2 = null;
             return;
         }
-        int selectedSlot = getSlotIndex(player.getInventory().selectedSlot);
+        int selectedSlot = getSlotIndex(player.getInventory().getSelectedSlot());
 
         swapStacks(selectedSlot, itemSwappedSlot);
     }
